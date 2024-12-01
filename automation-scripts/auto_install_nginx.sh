@@ -15,9 +15,6 @@ install_nginx() {
         sudo apt update
         sudo apt install -y nginx
 
-
-        status_procces=$(systemctl is-active nginx)
-
         # Если сервис не запущен, запускаем его
         if [ "$status_procces" == "inactive" ] || [ "$status_procces" == "failed" ]; then
             echo "Запускаю сервис NGINX..."
