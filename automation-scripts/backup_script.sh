@@ -1,35 +1,47 @@
 #!/bin/bash
 
-# Записываем путь хранения backup в переменую.
-way=/home/$USER/backup/
+# Переменная для хранения пути к бэкапам
+backup_dir="/home/$USER/backup/"
 
-# Запрос директории для резерного копирования.
-read  -p "Введите диреткорию: " directory
+# Запрос директории для резервного копирования
+read -p "Введите директорию для резервного копирования: " directory
+
+# Проверка, указана ли директория
 if [ -z "$directory" ]; then
   echo "Ошибка: Директория не указана."
   exit 1
 fi
 
-if [ ! -e $directory ]; then
-	echo "Ошибка: $directory не существует."
-	exit 1
+# Проверка существования директории
+if [ ! -d "$directory" ]; then
+  echo "Ошибка: Директория $directory не существует."
+  exit 1
 fi
 
-# Архивация с жатием
-echo "Начинаю процесс архивации файла." 
-tar -czvf backup_$(date "+%d-%m-%Y").tar.gz -P $directory
-echo "Процесс заверншен."
+# Имя архива
+archive_name="backup_$(date "+%d-%m-%Y").tar.gz"
 
-# Проверяем есть ли данный каталог, если его нет, то создаем.
-if [ ! -d $way ];then
-	mkdir $way
-
-  	# Переносим архив в директорию "way".
-        mv backup_$(date "+%d-%m-%Y").tar.gz $way
-        echo "Диреткория архива: $way"
-else
-        mv backup_$(date "+%d-%m-%Y").tar.gz $way
-        echo "Директория архива: $way"
-
-        
+# Архивирование сжатием
+echo "Начинаю процесс архивации директории $directory..."
+tar -czvf "$archive_name" -P "$directory"
+if [ $? -ne 0 ]; then
+  echo "Ошибка: Архивирование завершилось с ошибкой."
+  exit 1
 fi
+echo "Архивация завершена: $archive_name."
+
+# Проверка и создание директории для хранения бэкапов
+if [ ! -d "$backup_dir" ]; then
+  echo "Целевая директория для бэкапов не существует. Создаю $backup_dir..."
+  mkdir -p "$backup_dir"
+fi
+
+# Перемещение архива
+echo "Перемещаю архив в $backup_dir..."
+mv "$archive_name" "$backup_dir"
+if [ $? -ne 0 ]; then
+  echo "Ошибка: Не удалось переместить архив."
+  exit 1
+fi
+
+echo "Резервное копирование завершено. Архив находится в $backup_dir."
