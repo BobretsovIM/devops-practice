@@ -13,12 +13,12 @@
 
 - [auto_check_process.sh](automation-scripts/auto_check_procces.sh) – Скрипт для мониторинга состояния процессов в системе с выводом информации о PID и потреблении памяти.
 
-- [auto_install_nginx.sh](./automation-scripts/auto_install_nginx.sh) – Скрипт для автоматической установки и запуска веб-сервера NGINX на сервере.
+- [auto_install_nginx.sh](automation-scripts/auto_install_nginx.sh) – Скрипт для автоматической установки и запуска веб-сервера NGINX на сервере.
 
-- [backup_script.sh](./automation-scripts/backup_script.sh) – Скрипт для резервного копирования указанной пользователем директории с сохранением архивов в указанной папке.
+- [backup_script.sh](automation-scripts/backup_script.sh) – Скрипт для резервного копирования указанной пользователем директории с сохранением архивов в указанной папке.
 
-- [check_dir.sh](./automation-scripts/check_dir.sh) – Скрипт для подсчета количества файлов в указанной директории.
+- [check_dir.sh](automation-scripts/check_dir.sh) – Скрипт для подсчета количества файлов в указанной директории.
 
-- [delete_old_file.sh](./automation-scripts/delete_old_file.sh) – Скрипт для поиска и удаления старых файлов, не изменявшихся более 7 дней.
+- [delete_old_file.sh](automation-scripts/delete_old_file.sh) – Скрипт для поиска и удаления старых файлов, не изменявшихся более 7 дней.
   
-- [monitoring_server.py](./automation-scripts/monitoring_server.py) - Скрипт на Python для мониторинга доступности серверов (пинг) и записи результатов в лог-файл.
+- [monitoring_server.py](automation-scripts/monitoring_server.py) - Скрипт на Python для мониторинга доступности серверов (пинг) и записи результатов в лог-файл.
