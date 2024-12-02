@@ -11,7 +11,7 @@
 Удаления старых файлов: скрипты для поиска и удаления файлов, не изменявшихся более 7 дней.
 Примеры скриптов
 
-- [auto_check_process.sh](./automation-scripts/auto_check_process.sh) – Скрипт для мониторинга состояния процессов в системе с выводом информации о PID и потреблении памяти.
+- [auto_check_process.sh](automation-scripts/auto_check_procces.sh) – Скрипт для мониторинга состояния процессов в системе с выводом информации о PID и потреблении памяти.
 
 - [auto_install_nginx.sh](./automation-scripts/auto_install_nginx.sh) – Скрипт для автоматической установки и запуска веб-сервера NGINX на сервере.
 
